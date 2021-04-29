@@ -22,3 +22,4 @@
       debug: var=ec2.instances[0].public_dns_name
 
     - pause: minutes=1
+ 
