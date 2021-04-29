@@ -1,0 +1,25 @@
+# Creating EC2 Instance using Ansible
+---
+- name: Create an EC2 instance
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Launch instance
+      ec2:
+         key_name: main-key
+         group: launch-wizard-1
+         instance_type: t2.micro
+         image: ami-013f17f36f8b1fefb
+         aws_access_key: "aws_access_key" # Private keys
+         aws_secret_key: "aws_secret_key" # Private keys
+         wait: true        # Wait for the instance to run
+         region: us-east-1 # my region
+        
+      register: ec2
+    - name: Print all ec2 variables
+      debug: var=ec2
+    - name: Get the Ip address
+      debug: var=ec2.instances[0].public_dns_name
+
+    - pause: minutes=1
+ 

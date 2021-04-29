@@ -1,0 +1,25 @@
+# Creating Playbook
+---
+- name: Create an EC2 instance
+  hosts: localhost
+  tasks:
+    # Task 1
+    - name: Launch instance
+      ec2:
+         key_name: main-key
+         group: launch-wizard-1
+         instance_type: t2.micro
+         image: ami-013f17f36f8b1fefb
+         aws_access_key: "key" # Private keys
+         aws_secret_key: "key" # Private keys
+         wait: true        # Wait for the instance to run
+         region: us-east-1 # my region
+        
+      register: ec2
+    # Task 2
+    - name: Update apt
+      apt: update_cache=yes
+
+    # Task 3
+    - name: Install Apache
+      apt: name=apache2 state=latest
