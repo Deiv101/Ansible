@@ -1,0 +1,9 @@
+[raspberries]
+192.168.0.74 # IP Adress 1
+192.168.0.75 # IP Adress 2
+192.168.0.76 # IP Adress 3
+
+[raspberries:vars]
+ansible_connection=ssh     # Connection type to the host
+ansible_user=pi
+ansible_ssh_pass=raspberry # The password to use to authenticate to the host
