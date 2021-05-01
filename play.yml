@@ -1,4 +1,4 @@
-# Creating Playbook
+# Creating Playbo
 ---
 - name: Create an EC2 instance
   hosts: localhost
